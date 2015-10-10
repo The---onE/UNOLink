@@ -1,0 +1,16 @@
+游戏使用状态机进行流程的调度。与状态机有关的代码在State文件夹下。
+StateMachine.cpp StateMachine.h定义状态机，在游戏主场景定义状态机即可进行调度。
+State.h定义状态的模版，StateList.h定义所有的状态，添加对应的cpp文件实现各状态的函数即可创建状态。
+每个状态进入退出时会调用一次对应方法，每一帧执行当前状态的onUpdate函数和checkStateChange函数，处理游戏事件，并根据情况进行状态的转移。
+
+本游戏状态转移示意图如下：
+
+StartState
+   ↓
+InitState
+   ↓
+LinkState-------
+  ↓ ↑        |
+RemoveState----|
+               |
+GameoverState←-
